@@ -29,3 +29,12 @@ snmpwalk -c <your community string> localhost NET-SNMP-EXTEND-MIB::nsExtendOutpu
 ```
 you should see a line showing the requests in the queue of `/var/canvas` application
 
+* Have a glimpse on extended oid(Note that you should escape quotes to avoid interpretation by shell)
+```
+snmptranslate NET-SNMP-EXTEND-MIB::nsExtendOutLine.\"passenger\".1
+```
+
+
+# References
+* https://blog.slowb.ro/monitor-passenger-applications-via-snmp/
+
