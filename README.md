@@ -37,4 +37,6 @@ snmptranslate NET-SNMP-EXTEND-MIB::nsExtendOutLine.\"passenger\".1
 
 # References
 * https://blog.slowb.ro/monitor-passenger-applications-via-snmp/
+* http://net-snmp.sourceforge.net/wiki/index.php/Tut:Extending_snmpd_using_shell_scripts
+* http://net-snmp.sourceforge.net/tutorial/tutorial-5/commands/snmptranslate.html
 
