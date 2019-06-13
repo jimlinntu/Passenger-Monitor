@@ -35,10 +35,17 @@ you should see a line showing the requests in the queue of `/var/canvas` applica
 snmptranslate NET-SNMP-EXTEND-MIB::nsExtendOutLine.\"passenger\".1
 ```
 
+* Put `includes/polling/applications/passenger.inc.php` into `~/includes/polling/applications/passenger.inc.php` in LibreNMS machine
+
+
+
 
 # References
 * https://blog.slowb.ro/monitor-passenger-applications-via-snmp/
 * http://net-snmp.sourceforge.net/wiki/index.php/Tut:Extending_snmpd_using_shell_scripts
 * http://net-snmp.sourceforge.net/tutorial/tutorial-5/commands/snmptranslate.html
 * RRD Tutorial: https://oss.oetiker.ch/rrdtool/tut/rrdtutorial.en.html
+
+# Comments
+* I use `find . -name '*apache*'` to brute-force search which files are related to apache application and use these file as template to modify
 
