@@ -4,6 +4,7 @@
 
 * OS: Ubuntu
 * check whether you can run `sudo passenger-status` because we will use this command in the following setup
+* LibreNMS on branch php56
 
 
 # Set up
