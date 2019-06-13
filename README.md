@@ -26,6 +26,7 @@ sudo systemctl restart snmpd
 * Test whether your set up is correct
 ```
 snmpwalk -c <your community string> localhost NET-SNMP-EXTEND-MIB::nsExtendOutput2Table | grep 'passenger'
+snmpget -c <your community string> -Oqv localhost .1.3.6.1.4.1.8072.1.3.2.3.1.2.9.112.97.115.115.101.110.103.101.114
 ```
 you should see a line showing the requests in the queue of `/var/canvas` application
 
@@ -39,4 +40,5 @@ snmptranslate NET-SNMP-EXTEND-MIB::nsExtendOutLine.\"passenger\".1
 * https://blog.slowb.ro/monitor-passenger-applications-via-snmp/
 * http://net-snmp.sourceforge.net/wiki/index.php/Tut:Extending_snmpd_using_shell_scripts
 * http://net-snmp.sourceforge.net/tutorial/tutorial-5/commands/snmptranslate.html
+* RRD Tutorial: https://oss.oetiker.ch/rrdtool/tut/rrdtutorial.en.html
 
