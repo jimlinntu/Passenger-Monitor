@@ -4,7 +4,7 @@ global $config;
 
 
 $graphs = array(
-    'canvas_wait_list_size'       => 'Requests Waiting in Queue'
+    'passenger_canvas_wait_list_size'       => 'Requests Waiting in Queue'
 );
 
 foreach ($graphs as $key => $text) {

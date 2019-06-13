@@ -35,8 +35,10 @@ you should see a line showing the requests in the queue of `/var/canvas` applica
 snmptranslate NET-SNMP-EXTEND-MIB::nsExtendOutLine.\"passenger\".1
 ```
 
-* Put `includes/polling/applications/passenger.inc.php` into `~/includes/polling/applications/passenger.inc.php` in LibreNMS machine
+* Put `includes/polling/applications/passenger.inc.php` into `~/includes/polling/applications/passenger.inc.php` in the LibreNMS machine
 
+* Put `html/pages/device/apps/passenger.inc.php` into `~/html/pages/device/apps/passenger.inc.php` in the LibreNMS machine
+* Put `html/includes/graphs/application/passenger_canvas_wait_list_size.inc.php` into `~/html/includes/graphs/application/passenger_canvas_wait_list_size.inc.php` in the LibreNMS machine 
 
 
 

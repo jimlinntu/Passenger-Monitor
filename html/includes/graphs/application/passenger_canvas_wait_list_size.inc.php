@@ -16,8 +16,8 @@ $colour_area = 'CDEB8B';
 $colour_line = '006600';
 
 $colour_area_max = 'FFEE99';
-// boolean value (1 indicates true). For more information please see 'includes/graphs/generic_simplex.inc.php'
 
+// boolean value (1 indicates true). For more information please see 'includes/graphs/generic_simplex.inc.php'
 $graph_max  = 1; 
 
 $unit_text = 'Wait list size';
