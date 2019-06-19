@@ -13,7 +13,7 @@
 ```
 sudo crontab -u root -e
 # Add this line
-*/1 * * * * /home/ctld/Passenger-Monitor/passenger-monitor.py
+* * * * * /home/ctld/Passenger-Monitor/passenger-monitor.py
 ```
 * Set `/etc/snmpd.conf` so that snmpd can `cat /tmp/passenger-snmp`
 ```
@@ -48,6 +48,11 @@ snmptranslate NET-SNMP-EXTEND-MIB::nsExtendOutLine.\"passenger\".1
 * http://net-snmp.sourceforge.net/wiki/index.php/Tut:Extending_snmpd_using_shell_scripts
 * http://net-snmp.sourceforge.net/tutorial/tutorial-5/commands/snmptranslate.html
 * RRD Tutorial: https://oss.oetiker.ch/rrdtool/tut/rrdtutorial.en.html
+* Troubleshooting poller process: https://docs.librenms.org/Support/Poller%20Support/
+* Troubleshooting LibreNMS database: https://community.librenms.org/t/i-dont-have-permission-to-access-librenms-database-but-i-have-full-privlieges/4742/2
+    * `vim ~/.env`: you can see the database password in this file
+    * `mysql -h 127.0.0.1 -u librenms -p`: you can get into mysql shell by this command
+        * Note: `localhost` in librenms is not defined, so using `localhost` alias will fail to connect to the database
 
 # Comments
 * I use `find . -name '*apache*'` to brute-force search which files are related to apache application and use these file as template to modify

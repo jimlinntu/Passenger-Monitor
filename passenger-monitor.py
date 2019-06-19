@@ -3,10 +3,10 @@ import xml.etree.ElementTree as ET
 import subprocess # Execute command
 import os
 import time
-CACHETIME = 30 # write file every 30 seconds
+CACHETIME = 0 # write file every 30 seconds
 CACHEFILE = '/tmp/passenger-snmp'
 CANVAS_ABS_PATH = "/var/canvas"
-DEBUG=True # Turn on if you want to see whole xml file of `sudo passenger-status`
+DEBUG=False# Turn on if you want to see whole xml file of `sudo passenger-status`
 
 
 def sudo_passenger_status():
@@ -30,7 +30,8 @@ def get_cache():
             xml_string = sudo_passenger_status()
             # write file
             f = open ( CACHEFILE+'.TMP.'+ repr(os.getpid()), 'w' )
-            print(os.getpid())
+            if DEBUG: 
+                print(os.getpid())
             canvas_get_wait_list_size = parse_xml_string(xml_string)
             f.write ( str(canvas_get_wait_list_size) )
             f.close()
@@ -63,10 +64,15 @@ def chmod_rx():
     os.chmod(CACHEFILE, 0o555) # r_xr_xr_x
 
 def main():
-    # Canvas requests in queue
-    canvas_get_wait_list_size = get_cache()
-    # chmod so that snmp user can read
-    chmod_rx()
+    # Update /tmp/passenger-snmp.TMP every `SLEEP_INTERVAL` second
+    SLEEP_INTERVAL = 5 
+    for i in range(60 // SLEEP_INTERVAL):
+        time.sleep(SLEEP_INTERVAL)
+        # Canvas requests in queue
+        canvas_get_wait_list_size = get_cache()
+        # chmod so that snmp user can read
+        chmod_rx()
+
 
 if __name__ == "__main__":
     main()

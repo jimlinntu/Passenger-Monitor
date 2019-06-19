@@ -16,12 +16,12 @@ if (!empty($agent_data['app'][$name])) {
 
 echo ' passenger powered by Jim Lin';
 
-list ($canvas_get_wait_list_size) = explode("\n", $passenger);
+list ($wait_list_size) = explode("\n", $passenger);
 
 $rrd_name = array('app', $name, $app_id);
-$rrd_def = RrdDefinition::make()->addDataset('canvas_get_wait_list_size', 'DERIVE', 0);
+$rrd_def = RrdDefinition::make()->addDataset('wait_list_size', 'GAUGE', 0);
 
-$fields = array('canvas_get_wait_list_size'       => $canvas_get_wait_list_size);
+$fields = array('wait_list_size'       => $wait_list_size);
 
 $tags = compact('name', 'app_id', 'rrd_name', 'rrd_def');
 data_update($device, 'app', $tags, $fields);
