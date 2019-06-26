@@ -1,5 +1,8 @@
 # Passenger Monitoring
 
+# Illustration
+![illus](./img/diagram.png)
+
 # Requirements
 
 * OS: Ubuntu 16.04
@@ -56,7 +59,7 @@ The configuration breaks into two part: [the target machine part](#target) and [
 ```
 sudo crontab -u root -e
 # Add this line
-* * * * * /home/ctld/Passenger-Monitor/passenger-monitor.py
+* * * * * <this repo's folder in your target machine>/passenger-monitor.py
 ```
 * Set `/etc/snmpd.conf` so that snmpd can `cat /tmp/passenger-snmp`
 ```
