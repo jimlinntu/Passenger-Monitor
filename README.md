@@ -2,13 +2,36 @@
 
 # Requirements
 
-* OS: Ubuntu
+* OS: Ubuntu 16.04
 * check whether you can run `sudo passenger-status` because we will use this command in the following setup
 * LibreNMS on branch php56
 
+# Folder Structure
+```
+.
+├── html
+│   ├── includes
+│   │   └── graphs
+│   │       └── application
+│   │           └── passenger_canvas_wait_list_size.inc.php (graphing functionality)
+│   └── pages
+│       └── device
+│           └── apps
+│               └── passenger.inc.php (after adding this php file, you will see Passenger application in the LibreNMS WebUI)
+├── includes
+│   └── polling
+│       └── applications
+│           └── passenger.inc.php
+├── passenger-monitor.py (should be put in the target machine)
+└── README.md
+```
 
 # Set up
+The configuration breaks into two part: [the target machine part](#target) and [LibreNMS part](#librenms)
 
+<a name="target" />
+
+## The Target Machine Part
 * Use crontab to set make `passegenr-monitor.py` run for every minute
 ```
 sudo crontab -u root -e
@@ -35,6 +58,10 @@ you should see a line showing the requests in the queue of `/var/canvas` applica
 ```
 snmptranslate NET-SNMP-EXTEND-MIB::nsExtendOutLine.\"passenger\".1
 ```
+
+<a name="librenms" />
+
+## LibreNMS Part
 
 * Put `includes/polling/applications/passenger.inc.php` into `~/includes/polling/applications/passenger.inc.php` in the LibreNMS machine
 
