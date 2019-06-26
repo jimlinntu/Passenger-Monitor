@@ -4,7 +4,27 @@
 
 * OS: Ubuntu 16.04
 * check whether you can run `sudo passenger-status` because we will use this command in the following setup
+```
+sudo passenger-status
+============================
+Version : 5.0.27
+Date    : 2019-06-26 11:57:23 +0800
+Instance: H8ABx9be (Apache/2.4.18 (Ubuntu) Phusion_Passenger/5.0.27)
+
+----------- General information -----------
+Max pool size : 6
+App groups    : 1
+Processes     : 0
+Requests in top-level queue : 0
+
+----------- Application groups -----------
+/var/canvas:
+  App root: /var/canvas
+  (spawning 1 new process...)
+  Requests in queue: 1
+```
 * LibreNMS on branch php56
+* Canvas application located at `/var/canvas` in the target machine
 
 # Folder Structure
 ```
