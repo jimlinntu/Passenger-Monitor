@@ -57,7 +57,7 @@ The configuration breaks into two part: [the target machine part](#target) and [
 ## The Target Machine Part
 * Use crontab to set make `passegenr-monitor.py` run for every minute
 ```
-sudo crontab -u root -e
+sudo EDITOR=vim crontab -u root -e
 # Add this line
 * * * * * <this repo's folder in your target machine>/passenger-monitor.py
 ```
